@@ -4,7 +4,7 @@ import TagItemMini from './TagItemMini'
 import CONFIG from '../config'
 import TwikooCommentCount from '@/components/TwikooCommentCount'
 import LazyImage from '@/components/LazyImage'
-import { formatDateFmt } from '@/lib/formatDate'
+import { formatDateFmt } from '@/lib/utils/formatDate'
 import { checkContainHttp, sliceUrlFromHttp } from '@/lib/utils'
 import NotionIcon from '@/components/NotionIcon'
 
@@ -40,7 +40,7 @@ const BlogPostCard = ({ index, post, showSummary, siteInfo }) => {
                                 className="h-full w-full group-hover:scale-125 group-hover:brightness-50 brightness-90 rounded-t-md transform object-cover duration-500"
                             />
                             <h2 className='absolute bottom-0 left-0 text-white p-6 text-2xl replace break-words w-full shadow-text'>
-                                <NotionIcon icon={post.pageIcon} />{post.title}
+                                {siteConfig('POST_TITLE_ICON') && <NotionIcon icon={post.pageIcon} />}{post.title}
                             </h2>
                         </div>
                     </Link>
@@ -52,8 +52,7 @@ const BlogPostCard = ({ index, post, showSummary, siteInfo }) => {
                     <div className="px-4 flex flex-col w-full  text-gray-700  dark:text-gray-300">
 
                         {(!showPreview || showSummary) && post.summary && (
-                            <p style={{ overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: '4', WebkitBoxOrient: 'vertical' }}
-                                className="replace my-2 text-sm font-light leading-7">
+                            <p className="replace my-2 text-sm font-light leading-7 line-clamp-3">
                                 {post.summary}
                             </p>
                         )}
