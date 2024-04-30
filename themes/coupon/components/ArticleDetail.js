@@ -7,7 +7,7 @@ import Link from 'next/link'
 import ArticleAround from './ArticleAround'
 import { AdSlot } from '@/components/GoogleAdsense'
 import LazyImage from '@/components/LazyImage'
-import { formatDateFmt } from '@/lib/formatDate'
+import { formatDateFmt } from '@/lib/utils/formatDate'
 import WWAds from '@/components/WWAds'
 import NotionIcon from '@/components/NotionIcon'
 import { siteConfig } from '@/lib/config'
@@ -30,7 +30,7 @@ export default function ArticleDetail(props) {
       {post?.type && !post?.type !== 'Page' && post?.pageCover && (
         <div className="w-full relative md:flex-shrink-0 overflow-hidden">
           <Link href={post?.afflink ? `${post.afflink}` : `${SUB_PATH}/${post.slug}`} passHref target='_blank'>
-            <LazyImage alt={post.title} src={post?.pageCover} className='object-center w-full' />
+            <LazyImage alt={post.title} src={post?.pageCover} className='object-cover max-h-[60vh] w-full' />
           </Link>
         </div>
       )}
@@ -41,7 +41,7 @@ export default function ArticleDetail(props) {
 
           {/* 文章Title */}
           <div className="font-bold text-4xl text-black dark:text-white">
-            <NotionIcon icon={post?.pageIcon} />{post.title}
+            {siteConfig('POST_TITLE_ICON') && <NotionIcon icon={post?.pageIcon} />}{post.title}
           </div>
 
           <section className="flex-wrap flex mt-2 text-gray-400 dark:text-gray-400 font-light leading-8">

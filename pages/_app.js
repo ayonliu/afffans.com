@@ -3,8 +3,8 @@ import '@/styles/globals.css'
 import '@/styles/utility-patterns.css'
 
 // core styles shared by all of react-notion-x (required)
-import '@/styles/notion.css' //  重写部分样式
-import 'react-notion-x/src/styles.css'
+import '@/styles/notion.css' //  重写部分notion样式
+import 'react-notion-x/src/styles.css' // 原版的react-notion-x
 
 import useAdjustStyle from '@/hooks/useAdjustStyle'
 import { GlobalContextProvider } from '@/lib/global'
@@ -27,7 +27,6 @@ import GlobalHead from '@/components/GlobalHead'
 const MyApp = ({ Component, pageProps }) => {
   // 一些可能出现 bug 的样式，可以统一放入该钩子进行调整
   useAdjustStyle()
-
   const route = useRouter()
   const queryParam = useMemo(() => {
     return (
