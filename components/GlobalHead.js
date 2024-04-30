@@ -11,7 +11,8 @@ import { useEffect } from 'react'
  * @returns
  */
 const GlobalHead = props => {
-  const { children, siteInfo, post } = props
+  // const { children, siteInfo, post } = props
+  const { children, siteInfo, } = props
   let url = siteConfig('PATH')?.length
     ? `${siteConfig('LINK')}/${siteConfig('SUB_PATH', '')}`
     : siteConfig('LINK')
