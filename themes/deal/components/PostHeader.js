@@ -75,12 +75,12 @@ export default function PostHeader({ post, siteInfo }) {
                             <div className='mr-2'><WordCount /></div>
                             {post?.type !== 'Page' && (
                                 <>
-                                    {/* <Link
+                                    <Link
                                         href={`/archive#${formatDateFmt(post?.publishDate, 'yyyy-MM')}`}
                                         passHref
                                         className="pl-1 mr-2 cursor-pointer hover:underline">
                                         <i className="fa-regular fa-calendar"></i> {post?.publishDay}
-                                    </Link> */}
+                                    </Link>
                                 </>
                             )}
 
